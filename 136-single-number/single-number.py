@@ -1,17 +1,24 @@
 class Solution(object):
     def singleNumber(self, nums):
-        #More Batter 
-        mpp = {}
+        xor = 0
 
         for i in nums:
-            if i in mpp:
-                mpp[i] += 1
-            else:
-                mpp[i] = 1
+            xor = xor ^ i
+        return xor    
+        
+        
+        # #More Batter 
+        # mpp = {}
 
-        for key in mpp:
-            if mpp[key] == 1:
-                return key            
+        # for i in nums:
+        #     if i in mpp:
+        #         mpp[i] += 1
+        #     else:
+        #         mpp[i] = 1
+
+        # for key in mpp:
+        #     if mpp[key] == 1:
+        #         return key            
 
 
 
