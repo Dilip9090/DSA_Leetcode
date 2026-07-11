@@ -1,66 +1,41 @@
 class Solution(object):
     def singleNumber(self, nums):
-        xor = 0
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        mapp = {}
 
         for i in nums:
-            xor = xor ^ i
-        return xor    
-        
-        
-        # #More Batter 
-        # mpp = {}
-
-        # for i in nums:
-        #     if i in mpp:
-        #         mpp[i] += 1
-        #     else:
-        #         mpp[i] = 1
-
-        # for key in mpp:
-        #     if mpp[key] == 1:
-        #         return key            
+            if i in mapp:
+                mapp[i] += 1
+            else:
+                mapp[i] = 1
+        for key in mapp:
+            if mapp[key] == 1:
+                return key            
 
 
 
-
-        # # Batter Solution
+        # #2. Solution 
         # maxi = max(nums)
-        # uni = [0] * (maxi + 1)
+        # uni = [0] * (maxi + 2)
         # n = len(nums)
 
         # for i in nums:
         #     uni[i] += 1
 
-        # for i in range(len(uni)):
-        #     if uni[i] == 1:
-        #         return i    
-
-        
-        
-        
-        
-        
-        
-        
-        # Brute Force
-        # n = len(nums)
-
-        # for i in range(n):
-        #     noo = nums[i]
-        #     count = 0
-        #     for k in range(n):
-        #         if nums[k] == noo:
-        #             count += 1
-        #     if count == 1:
-        #         return nums[i]
+        # for j in range(len(uni)):
+        #     if uni[j] == 1:
+        #         return j    
 
 
+        ## 1. Solution
+        # arr = []
 
-        # opop = []
-        # for x in nums:
-        #     if x in opop:
-        #         opop.remove(x)
+        # for i in nums:
+        #     if i in arr:
+        #         arr.remove(i)
         #     else:
-        #         opop.append(x)
-        # return opop[0]
-
+        #         arr.append(i)
+        # return arr[0]                
