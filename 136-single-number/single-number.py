@@ -4,16 +4,28 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        mapp = {}
+        # 4. Solution
+        xor = 0
 
         for i in nums:
-            if i in mapp:
-                mapp[i] += 1
-            else:
-                mapp[i] = 1
-        for key in mapp:
-            if mapp[key] == 1:
-                return key            
+            xor = xor ^ i
+        return xor
+
+
+
+
+
+        # # 3. Solution
+        # mapp = {}
+
+        # for i in nums:
+        #     if i in mapp:
+        #         mapp[i] += 1
+        #     else:
+        #         mapp[i] = 1
+        # for key in mapp:
+        #     if mapp[key] == 1:
+        #         return key            
 
 
 
