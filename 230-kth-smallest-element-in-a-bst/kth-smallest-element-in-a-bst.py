@@ -11,17 +11,21 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        stack = []
+        self.count = 0
+        self.ans = 0
 
-        while True:
-            while root:
-                stack.append(root)
-                root = root.left
+        def inorder(node):
+            if not node:
+                return
 
-            root = stack.pop()
-            k -= 1
+            inorder(node.left)
 
-            if k == 0:
-                return root.val
+            self.count += 1
+            if self.count == k:
+                self.ans = node.val
+                return
 
-            root = root.right
+            inorder(node.right)
+
+        inorder(root)
+        return self.ans
