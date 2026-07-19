@@ -3,21 +3,21 @@ class Solution:
         n = len(graph)
         color = [-1] * n
 
-        for i in range(n):
-            if color[i] != -1:
-                continue
+        def dfs(node, clr):
+            color[node] = clr
 
-            q = deque([i])
-            color[i] = 0
-
-            while q:
-                node = q.popleft()
-
-                for nei in graph[node]:
-                    if color[nei] == -1:
-                        color[nei] = 1 - color[node]
-                        q.append(nei)
-                    elif color[nei] == color[node]:
+            for nei in graph[node]:
+                if color[nei] == -1:
+                    if not dfs(nei, 1 - clr):
                         return False
+                elif color[nei] == clr:
+                    return False
+
+            return True
+
+        for i in range(n):
+            if color[i] == -1:
+                if not dfs(i, 0):
+                    return False
 
         return True
