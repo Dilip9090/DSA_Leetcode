@@ -3,7 +3,7 @@ class Solution:
         n = len(nums)
         presum = [0] * n
         presum[0] = nums[0]
-        mpp = {0: 1}
+        mpp = {0 : 1}
         count = 0
 
         for i in range(1, n):
