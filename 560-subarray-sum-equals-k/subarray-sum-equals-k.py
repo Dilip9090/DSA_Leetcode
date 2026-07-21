@@ -3,12 +3,12 @@ class Solution:
         n = len(nums)
         presum = [0] * n
         presum[0] = nums[0]
-        
+        mpp = {0: 1}
+        count = 0
 
         for i in range(1, n):
             presum[i] = presum[i - 1] + nums[i]
-        mpp = {0: 1}
-        count = 0
+
         for j in range(n):
             val = presum[j] - k
             if val in mpp:
