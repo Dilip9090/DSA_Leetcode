@@ -18,7 +18,7 @@ class Solution(object):
                 high -= 1 
                 continue   
             if arr[low] <= arr[mid]: 
-                if arr[low] <= target < arr[mid]:
+                if arr[low] <= target and target < arr[mid]:
                     high = mid - 1
                 else:
                     low = mid + 1
