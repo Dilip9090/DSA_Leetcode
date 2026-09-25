@@ -16,5 +16,5 @@ class Solution(object):
                 ans = min(ans, nums[mid])
             else:
                 low = mid + 1
-                ans = min(ans, nums[mid])
+                ans = min(ans, nums[low])
         return ans            
