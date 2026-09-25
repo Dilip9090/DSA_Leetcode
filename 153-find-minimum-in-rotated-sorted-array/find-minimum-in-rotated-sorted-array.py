@@ -11,6 +11,9 @@ class Solution(object):
 
         while low <= high:
             mid = (low + high) // 2
+            if nums[low] <= nums[high]:
+                ans = min(ans,nums[low])
+                break
             if nums[mid] <= nums[high]:
                 high = mid - 1
                 ans = min(ans, nums[mid])
