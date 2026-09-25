@@ -13,10 +13,8 @@ class Solution(object):
             mid = (low + high) // 2
             if nums[mid] <= nums[high]:
                 high = mid - 1
-                if ans > nums[mid]:
-                    ans = nums[mid]
+                ans = min(ans, nums[mid])
             else:
                 low = mid + 1
-                if ans > nums[mid]:
-                    ans = nums[mid]
+                ans = min(ans, nums[mid])
         return ans            
